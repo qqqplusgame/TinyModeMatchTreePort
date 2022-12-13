@@ -1,0 +1,477 @@
+.unity-button {
+}
+
+.quit-button {
+    position: absolute;
+    width: 80px;
+    height: 34px;
+    align-self: center;
+    top: 88px;
+    left: -7px;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/Common/Button_Red_Idle.png?fileID=2800000&guid=9c81c2729c3d23d4c83d705d11f818d7&type=3#Button_Red_Idle');
+    -unity-slice-left: 5;
+    -unity-slice-top: 13;
+    -unity-slice-right: 5;
+    -unity-slice-bottom: 9;
+    -unity-text-align: lower-center;
+    justify-content: flex-start;
+    -unity-font-definition: url('project://database/Assets/_Project/res/fonts/Pixellari%20SDF.asset?fileID=11400000&guid=c013de2312baf40429010bc977aa466b&type=2#Pixellari SDF');
+    color: rgb(116, 52, 94);
+    background-color: rgb(55, 55, 55);
+}
+
+.quit-button:hover {
+    position: absolute;
+    width: 80px;
+    height: 34px;
+    align-self: center;
+    top: 88px;
+    left: -7px;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/Common/Button_Red_Hover.png?fileID=2800000&guid=9420160473daa714381703cb467dd12d&type=3#Button_Red_Hover');
+    -unity-slice-left: 5;
+    -unity-slice-top: 13;
+    -unity-slice-right: 5;
+    -unity-slice-bottom: 9;
+    -unity-text-align: lower-center;
+    justify-content: flex-start;
+    -unity-font-definition: url('project://database/Assets/_Project/res/fonts/Pixellari%20SDF.asset?fileID=11400000&guid=c013de2312baf40429010bc977aa466b&type=2#Pixellari SDF');
+    color: rgb(116, 52, 94);
+    background-color: rgb(55, 55, 55);
+}
+
+.quit-button:active {
+    position: absolute;
+    width: 80px;
+    height: 34px;
+    align-self: center;
+    top: 88px;
+    left: -7px;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/Common/Button_Red_Clicked.png?fileID=2800000&guid=1a9e6518995fcd3438dd40435a5fd47c&type=3#Button_Red_Clicked');
+    -unity-slice-left: 5;
+    -unity-slice-top: 13;
+    -unity-slice-right: 5;
+    -unity-slice-bottom: 9;
+    -unity-text-align: lower-center;
+    justify-content: flex-start;
+    -unity-font-definition: url('project://database/Assets/_Project/res/fonts/Pixellari%20SDF.asset?fileID=11400000&guid=c013de2312baf40429010bc977aa466b&type=2#Pixellari SDF');
+    color: rgb(116, 52, 94);
+    background-color: rgb(55, 55, 55);
+}
+
+.resume-button {
+    position: absolute;
+    width: 80px;
+    height: 34px;
+    align-self: center;
+    top: 88px;
+    left: auto;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/Common/Button_Green_Idle.png?fileID=2800000&guid=da61b8f36c0a7dc4e9dedd7c80951709&type=3#Button_Green_Idle');
+    -unity-slice-left: 5;
+    -unity-slice-top: 13;
+    -unity-slice-right: 5;
+    -unity-slice-bottom: 9;
+    -unity-text-align: lower-center;
+    justify-content: flex-start;
+    -unity-font-definition: url('project://database/Assets/_Project/res/fonts/Pixellari%20SDF.asset?fileID=11400000&guid=c013de2312baf40429010bc977aa466b&type=2#Pixellari SDF');
+    color: rgb(11, 120, 14);
+    background-color: rgb(55, 55, 55);
+    right: -7px;
+}
+
+.resume-button:hover {
+    position: absolute;
+    width: 80px;
+    height: 34px;
+    align-self: center;
+    top: 88px;
+    left: auto;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/Common/Button_Green_Hover.png?fileID=2800000&guid=282b38ed40ce6cb4c85eee79adbc9583&type=3#Button_Green_Hover');
+    -unity-slice-left: 5;
+    -unity-slice-top: 13;
+    -unity-slice-right: 5;
+    -unity-slice-bottom: 9;
+    -unity-text-align: lower-center;
+    justify-content: flex-start;
+    -unity-font-definition: url('project://database/Assets/_Project/res/fonts/Pixellari%20SDF.asset?fileID=11400000&guid=c013de2312baf40429010bc977aa466b&type=2#Pixellari SDF');
+    color: rgb(11, 120, 14);
+    background-color: rgb(55, 55, 55);
+    right: -7px;
+}
+
+.resume-button:active {
+    position: absolute;
+    width: 80px;
+    height: 34px;
+    align-self: center;
+    top: 88px;
+    left: auto;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/Common/Button_Green_Clicked.png?fileID=2800000&guid=92d59a77a9c1f454abd3e5c90476765b&type=3#Button_Green_Clicked');
+    -unity-slice-left: 5;
+    -unity-slice-top: 13;
+    -unity-slice-right: 5;
+    -unity-slice-bottom: 9;
+    -unity-text-align: lower-center;
+    justify-content: flex-start;
+    -unity-font-definition: url('project://database/Assets/_Project/res/fonts/Pixellari%20SDF.asset?fileID=11400000&guid=c013de2312baf40429010bc977aa466b&type=2#Pixellari SDF');
+    color: rgb(11, 120, 14);
+    background-color: rgb(55, 55, 55);
+    right: -7px;
+}
+
+.sound-on {
+    position: absolute;
+    left: 113px;
+    top: 9px;
+    width: 21px;
+    height: 22px;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/Settings/Icon_Sound_On.png?fileID=21300000&guid=1a7421a3d68e99445a24363d34b154f2&type=3#Icon_Sound_On');
+    background-color: rgba(188, 188, 188, 0);
+    -unity-background-scale-mode: stretch-to-fill;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+}
+
+.sound-off {
+    position: absolute;
+    left: 113px;
+    top: 9px;
+    width: 21px;
+    height: 22px;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/Settings/Icon_Sound_Off.png?fileID=21300000&guid=d77b0241ea9b1af46acf5854e488e523&type=3#Icon_Sound_Off');
+    background-color: rgba(188, 188, 188, 0);
+    -unity-background-scale-mode: stretch-to-fill;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+}
+
+.pause-button {
+    justify-content: flex-end;
+    align-items: auto;
+    align-self: auto;
+    position: absolute;
+    bottom: 10px;
+    right: 7px;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/Common/Icon_Pause_Idle.png?fileID=21300000&guid=a64eab8955c187b40b19d7823b32cd83&type=3#Icon_Pause_Idle');
+    background-color: rgba(188, 188, 188, 0);
+    width: 27px;
+    height: 29px;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-slice-left: 0;
+    -unity-slice-top: 0;
+    -unity-slice-right: 0;
+    -unity-slice-bottom: 0;
+    visibility: visible;
+    overflow: visible;
+}
+
+.pause-button:hover {
+    justify-content: flex-end;
+    align-items: auto;
+    align-self: auto;
+    position: absolute;
+    bottom: 10px;
+    right: 7px;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/Common/Icon_Pause_Hover.png?fileID=21300000&guid=e585c05afebcb3746be1adfc4400a9ff&type=3#Icon_Pause_Hover');
+    background-color: rgba(188, 188, 188, 0);
+    width: 27px;
+    height: 29px;
+}
+
+.pause-button:active {
+    justify-content: flex-end;
+    align-items: auto;
+    align-self: auto;
+    position: absolute;
+    bottom: 10px;
+    right: 7px;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/Common/Icon_Pause_Clicked.png?fileID=21300000&guid=0c9c16dd30052964c9ce076abc9714bb&type=3#Icon_Pause_Clicked');
+    background-color: rgba(188, 188, 188, 0);
+    width: 27px;
+    height: 29px;
+}
+
+.setting-button {
+    justify-content: flex-end;
+    align-items: auto;
+    align-self: auto;
+    position: absolute;
+    bottom: 10px;
+    right: 7px;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/Settings/Icon_Settings_Idle.png?fileID=21300000&guid=b9c4ea2fbd0ff9443b7d38d741138ade&type=3#Icon_Settings_Idle');
+    background-color: rgba(188, 188, 188, 0);
+    width: 27px;
+    height: 29px;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-slice-left: 0;
+    -unity-slice-top: 0;
+    -unity-slice-right: 0;
+    -unity-slice-bottom: 0;
+    visibility: visible;
+    overflow: visible;
+}
+
+.setting-button:hover {
+    justify-content: flex-end;
+    align-items: auto;
+    align-self: auto;
+    position: absolute;
+    bottom: 10px;
+    right: 7px;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/Settings/Icon_Settings_Hover.png?fileID=21300000&guid=0ca5f9a50a794ce4ab6a05b8feb1b7b6&type=3#Icon_Settings_Hover');
+    background-color: rgba(188, 188, 188, 0);
+    width: 27px;
+    height: 29px;
+}
+
+.setting-button:active {
+    justify-content: flex-end;
+    align-items: auto;
+    align-self: auto;
+    position: absolute;
+    bottom: 10px;
+    right: 7px;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/Settings/Icon_Settings_Clicked.png?fileID=21300000&guid=79558d9f27eab67438817a8d16321ea3&type=3#Icon_Settings_Clicked');
+    background-color: rgba(188, 188, 188, 0);
+    width: 27px;
+    height: 29px;
+}
+
+.left-button {
+    position: absolute;
+    top: 264px;
+    left: 19px;
+    width: 28px;
+    height: 52px;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/WorldMap/Arrow_Idle.png?fileID=21300000&guid=bce49b89a9b7cea47919074e2bdc2b3d&type=3#Arrow_Idle');
+    background-color: rgba(188, 188, 188, 0);
+}
+
+.left-button:hover {
+    position: absolute;
+    top: 264px;
+    left: 19px;
+    width: 28px;
+    height: 52px;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/WorldMap/Arrow_Hover.png?fileID=21300000&guid=03736ae69e8547349a0bd42c88d6ea75&type=3#Arrow_Hover');
+    background-color: rgba(188, 188, 188, 0);
+}
+
+.left-button:active {
+    position: absolute;
+    top: 264px;
+    left: 19px;
+    width: 28px;
+    height: 52px;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/WorldMap/Arrow_Clicked.png?fileID=21300000&guid=f4311712300e459459108d016d124122&type=3#Arrow_Clicked');
+    background-color: rgba(188, 188, 188, 0);
+}
+
+.ImageBackground {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0.59);
+    position: absolute;
+    max-width: none;
+    max-height: none;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    top: auto;
+    left: auto;
+}
+
+.level-city {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    width: 163px;
+    height: 96px;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/WorldMap/City_WorldMap_Icon.png?fileID=21300000&guid=b846b6fbf07811c468789a29d1e3f05c&type=3#City_WorldMap_Icon');
+}
+
+.level-farm {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    width: 192px;
+    height: 84px;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/WorldMap/Farm_WorldMap_Icon.png?fileID=21300000&guid=6e1c25f4ab841374b8c9afd5a6f159d2&type=3#Farm_WorldMap_Icon');
+}
+
+.level-camp {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    width: 121px;
+    height: 61px;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/WorldMap/Camp_WorldMap_Icon.png?fileID=21300000&guid=e482f30c4a83486489541f5c95c5e4e1&type=3#Camp_WorldMap_Icon');
+}
+
+.label-level-city {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    width: 100px;
+    height: 29px;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/WorldMap/City_Title.png?fileID=21300000&guid=1f9a09a53b47ed049b6657a79e42232f&type=3#City_Title');
+    top: 18%;
+    left: auto;
+    justify-content: flex-start;
+    align-self: center;
+}
+
+.label-level-farm {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    width: 120px;
+    height: 24px;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/WorldMap/Farm_Title.png?fileID=21300000&guid=58a57f157b430ce4e969887f2138d639&type=3#Farm_Title');
+    top: 18%;
+    left: auto;
+    justify-content: flex-start;
+    align-self: center;
+}
+
+.label-level-camp {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    width: 139px;
+    height: 29px;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/WorldMap/Camp_Title.png?fileID=21300000&guid=5b7ef6ab0d694c847b3f5fccad79a987&type=3#Camp_Title');
+    top: 18%;
+    left: auto;
+    justify-content: flex-start;
+    align-self: center;
+}
+
+.city-sky {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0);
+    top: auto;
+    bottom: auto;
+    height: 50%;
+    align-items: center;
+    align-self: stretch;
+    position: absolute;
+    width: 100%;
+    justify-content: flex-start;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/WorldMap/City_Sky.png?fileID=21300000&guid=0c01d914e183ffc4d9ea6893d1de8e2e&type=3#City_Sky');
+    left: auto;
+    right: auto;
+}
+
+.camp-sky {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0);
+    top: auto;
+    bottom: auto;
+    height: 50%;
+    align-items: center;
+    align-self: stretch;
+    position: absolute;
+    width: 100%;
+    justify-content: flex-start;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/WorldMap/Camp_Sky.png?fileID=21300000&guid=e4999bd80fe6460488c6b240b2194d75&type=3#Camp_Sky');
+    left: auto;
+    right: auto;
+}
+
+.farm-sky {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0);
+    top: auto;
+    bottom: auto;
+    height: 50%;
+    align-items: center;
+    align-self: stretch;
+    position: absolute;
+    width: 100%;
+    justify-content: flex-start;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/WorldMap/Farm_Sky.png?fileID=21300000&guid=b121afafc9dcda74f86d87033c13e0e9&type=3#Farm_Sky');
+    left: auto;
+    right: auto;
+}
+
+.city-ground {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0);
+    top: auto;
+    bottom: 0;
+    height: 50%;
+    align-items: center;
+    align-self: stretch;
+    position: absolute;
+    width: 100%;
+    justify-content: flex-start;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/WorldMap/City_Ground.png?fileID=21300000&guid=3dac54329cb4740458567ab9bad0b99c&type=3#City_Ground');
+}
+
+.camp-ground {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0);
+    top: auto;
+    bottom: 0;
+    height: 50%;
+    align-items: center;
+    align-self: stretch;
+    position: absolute;
+    width: 100%;
+    justify-content: flex-start;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/WorldMap/Camp_Ground.png?fileID=21300000&guid=a8291add098b75f4294af1c809399774&type=3#Camp_Ground');
+}
+
+.farm-ground {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0);
+    top: auto;
+    bottom: 0;
+    height: 50%;
+    align-items: center;
+    align-self: stretch;
+    position: absolute;
+    width: 100%;
+    justify-content: flex-start;
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/WorldMap/Farm_Ground.png?fileID=21300000&guid=dbda6c7854d33954a8a3cd53d466b482&type=3#Farm_Ground');
+}
+
+.opt-in {
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    transition-property: -unity-background-image-tint-color;
+    transition-duration: 1s;
+}
+
+.opt-zero {
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
+}

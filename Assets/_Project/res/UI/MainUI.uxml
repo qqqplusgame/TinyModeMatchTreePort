@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="GameUI" src="project://database/Assets/_Project/res/UI/GameUI.uxml?fileID=9197481963319205126&amp;guid=dae41642ea00aea4ab4bc6412b97388c&amp;type=3#GameUI" />
+    <ui:Template name="WorldMap" src="project://database/Assets/_Project/res/UI/WorldMap.uxml?fileID=9197481963319205126&amp;guid=887bd303231d49241aa041e44f88bc84&amp;type=3#WorldMap" />
+    <ui:Template name="GameOverMenu" src="project://database/Assets/_Project/res/UI/GameOverMenu.uxml?fileID=9197481963319205126&amp;guid=c241d5173d2b9424b95e4c41fa9a6060&amp;type=3#GameOverMenu" />
+    <ui:Template name="PauseMenu" src="project://database/Assets/_Project/res/UI/PauseMenu.uxml?fileID=9197481963319205126&amp;guid=49057f66f768a734aad5ff617f44733e&amp;type=3#PauseMenu" />
+    <Style src="project://database/Assets/_Project/res/UI/base_ui.uss?fileID=7433441132597879392&amp;guid=32a79120a1f347f4ab0ce49fcd2d3e3a&amp;type=3#base_ui" />
+    <ui:Instance template="GameUI" name="GameUI" picking-mode="Ignore" style="display: none; width: 100%; height: 100%;" />
+    <ui:Instance template="WorldMap" name="WorldMap" picking-mode="Ignore" style="width: 100%; height: 100%; display: none;" />
+    <ui:Instance template="GameOverMenu" name="GameOverMenu" picking-mode="Ignore" style="position: absolute; width: 100%; height: 100%; display: none;" />
+    <ui:Instance template="PauseMenu" name="PauseMenu" picking-mode="Ignore" style="width: 100%; height: 100%; position: absolute; display: none;" />
+</ui:UXML>

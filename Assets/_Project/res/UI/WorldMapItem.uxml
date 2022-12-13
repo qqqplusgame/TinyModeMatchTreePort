@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Project/res/UI/base_ui.uss?fileID=7433441132597879392&amp;guid=32a79120a1f347f4ab0ce49fcd2d3e3a&amp;type=3#base_ui" />
+    <ui:VisualElement name="WorldMapItem" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 228px; height: 180px; position: absolute; align-items: center; justify-content: center; align-self: center;">
+        <ui:VisualElement name="ImagePreview" class="level-city" />
+    </ui:VisualElement>
+</ui:UXML>
