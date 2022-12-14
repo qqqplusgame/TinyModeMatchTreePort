@@ -219,7 +219,7 @@ namespace ProjectM
                 return getGameState(em).CurrentScore >= levelPointObjective.ScoreObjective;
             }
 
-            if (em.HasComponent<LevelPointObjective>(getCurrentLevelEntity(em)))
+            if (em.HasComponent<LevelEggObjective>(getCurrentLevelEntity(em)))
             {
                 var levelEggObjective = em.GetComponentData<LevelEggObjective>(getCurrentLevelEntity(em));
                 return levelEggObjective.CollectedEggs >=

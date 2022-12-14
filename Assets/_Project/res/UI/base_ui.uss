@@ -467,11 +467,36 @@
 }
 
 .opt-in {
-    -unity-background-image-tint-color: rgb(255, 255, 255);
-    transition-property: -unity-background-image-tint-color;
+    transition-property: opacity;
     transition-duration: 1s;
+    opacity: 1;
 }
 
 .opt-zero {
+    opacity: 0;
+}
+
+.ani-blink {
+    transition-property: opacity;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-sine;
+}
+
+.ani-rotate {
+    transition-property: rotate;
+    transition-duration: 2s;
     -unity-background-image-tint-color: rgba(255, 255, 255, 0);
+    transition-timing-function: linear;
+}
+
+.rotate-360 {
+    rotate: 360deg;
+}
+
+.rotate-0 {
+    rotate: 0;
+}
+
+.opt-20 {
+    opacity: 0.2;
 }

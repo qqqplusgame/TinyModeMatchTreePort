@@ -78,6 +78,11 @@ namespace ProjectM
                         collectedEggCount++;
                     }
                 }).Run();
+                
+                if (collectedEggCount > 0)
+                {
+                    UiService.UpdateUi(GameUiUpdateType.GameUIUpdateObjectiveChange);
+                }
             }
         }
     }

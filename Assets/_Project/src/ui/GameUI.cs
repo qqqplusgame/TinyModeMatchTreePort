@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Unity.Entities;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -57,16 +58,54 @@ namespace ProjectM.UI
         {
             // The UXML is already instantiated by the UIDocument component
             pauseButton.RegisterCallback<ClickEvent>(PauseButtonClick);
+            ImageObjectiveCompleteGlow.RegisterCallback<TransitionEndEvent>(OnObjectCompleteGlowTransitionEnd);
+            ImageNoMovesWarning.RegisterCallback<TransitionEndEvent>(OnNoMovesWarningTransitionEnd);
+        }
+
+        private void OnNoMovesWarningTransitionEnd(TransitionEndEvent evt)
+        {
+            ImageNoMovesWarning.ToggleInClassList("opt-20");
+        }
+
+        private void OnObjectCompleteGlowTransitionEnd(TransitionEndEvent evt)
+        {
+            Debug.Log("OnObjectCompleteGlowTransitionEnd");
+            //loop the animation
+            ImageObjectiveCompleteGlow.EnableInClassList("ani-rotate", false);
+            ImageObjectiveCompleteGlow.EnableInClassList("rotate-360", false);
+
+
+            StartCoroutine(DoAfterOnObjectCompleteGlowTransitionEnd());
+        }
+
+        IEnumerator DoAfterOnObjectCompleteGlowTransitionEnd()
+        {
+            yield return new WaitForEndOfFrame();
+            ImageObjectiveCompleteGlow.EnableInClassList("ani-rotate", true);
+            ImageObjectiveCompleteGlow.EnableInClassList("rotate-360", true);
         }
 
         public void SetVisible(bool visible)
         {
             uiRoot.style.display = visible ? DisplayStyle.Flex : DisplayStyle.None;
+
+            if (!visible)
+            {
+                //do some cleanup
+                ImageObjectiveCompleteGlow.EnableInClassList("ani-rotate", false);
+                ImageObjectiveCompleteGlow.EnableInClassList("rotate-360", false);
+                StopAllCoroutines();
+
+                ImageNoMovesWarning.EnableInClassList("ani-blink", false);
+                ImageNoMovesWarning.EnableInClassList("opt-20", false);
+            }
         }
 
         private void OnDisable()
         {
             pauseButton.UnregisterCallback<ClickEvent>(PauseButtonClick);
+            ImageObjectiveCompleteGlow.UnregisterCallback<TransitionEndEvent>(OnObjectCompleteGlowTransitionEnd);
+            ImageNoMovesWarning.UnregisterCallback<TransitionEndEvent>(OnNoMovesWarningTransitionEnd);
         }
 
         private void PauseButtonClick(ClickEvent evt)
@@ -92,7 +131,7 @@ namespace ProjectM.UI
             UiService.SetVisualElementVisible(ImageObjectiveSurvival, isSurvivalObjective);
 
             UiService.SetVisualElementVisible(ImageMoves, !isSurvivalObjective);
-            UiService.SetVisualElementVisible(ImageNoMovesWarning, !isSurvivalObjective);
+            UiService.SetVisualElementVisible(ImageNoMovesWarning, false);
 
             LabelTime.text = "";
             LabelScore.text = "0";
@@ -131,6 +170,7 @@ namespace ProjectM.UI
             // world.forEach([game.CollectedCurrency], (collectedCurrency) => { heldEgg++; });
             //heldEgg == 0 &&
             var isObjectiveComplete = GameService.isObjectiveCompleted(em);
+
 
             UiService.SetVisualElementVisible(ImageObjectiveCompleteGlow, isObjectiveComplete);
             UiService.SetVisualElementVisible(ImageObjectivePoint, isPointObjective && isObjectiveComplete);
@@ -194,6 +234,13 @@ namespace ProjectM.UI
             {
                 var remainingMoveCount = maxMoveCount - gameState.CurrentMoveCount;
                 strRemainingMoves = remainingMoveCount.ToString();
+                //show warning if less than 3 moves left
+                if (remainingMoveCount <= 3 && ImageNoMovesWarning.style.display == DisplayStyle.None)
+                {
+                    UiService.SetVisualElementVisible(ImageNoMovesWarning, true);
+                    ImageNoMovesWarning.EnableInClassList("ani-blink", true);
+                    ImageNoMovesWarning.EnableInClassList("opt-20", true);
+                }
             }
 
             LabelRemainingMoves.text = strRemainingMoves;
@@ -208,14 +255,42 @@ namespace ProjectM.UI
             var level = em.GetComponentData<Level>(levelEntity);
 
             //var isPointObjective = em.HasComponent<LevelPointObjective>(levelEntity);
-            //var isEggObjective = em.HasComponent<LevelEggObjective>(levelEntity);
+            var isEggObjective = em.HasComponent<LevelEggObjective>(levelEntity);
             var isSurvivalObjective = em.HasComponent<LevelSurvival>(levelEntity);
+
+            var isObjectiveComplete = GameService.isObjectiveCompleted(em);
+            if (isObjectiveComplete && ImageObjectiveCompleteGlow.style.display == DisplayStyle.None)
+            {
+                UiService.SetVisualElementVisible(ImageObjectiveCompleteGlow, isObjectiveComplete);
+                ImageObjectiveCompleteGlow.EnableInClassList("ani-rotate", true);
+                ImageObjectiveCompleteGlow.EnableInClassList("rotate-360", true);
+            }
 
             LabelScore.text = GameService.formatNumber(gameState.CurrentScore);
             if (isSurvivalObjective)
             {
                 var survivalObjective = em.GetComponentData<LevelSurvival>(levelEntity);
                 LabelTime.text = GameService.formatTime(survivalObjective.SurvivalTimer);
+            }
+            else if (isEggObjective)
+            {
+                var eggObjective = em.GetComponentData<LevelEggObjective>(levelEntity);
+                var totalToCollect = eggObjective.EggsInGridAtStart + eggObjective.EggsToSpawnOnEggCollected;
+
+                var collectedEgg = eggObjective.CollectedEggs; // - heldEgg;
+                if (collectedEgg > LastCollectedEggCount)
+                {
+                    LastCollectedEggCount = collectedEgg;
+
+                    //this.punchScale(world, gameUI.LabelObjective, 1.35);
+                    //this.punchScale(world, gameUI.ImageObjectiveEggIncomplete, 1.1);
+                }
+
+                var remainingEggCount = collectedEgg + "/" + totalToCollect;
+                if (remainingEggCount != LabelObjective.text)
+                {
+                    LabelObjective.text = remainingEggCount;
+                }
             }
         }
     }
