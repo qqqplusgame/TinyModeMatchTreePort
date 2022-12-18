@@ -55,7 +55,7 @@ namespace ProjectM
                     math.max(0, math.min(levelSurvival.MaxSurvivalTime, levelSurvival.SurvivalTimer));
                 em.SetComponentData(levelEntity, levelSurvival);
 
-                UiService.UpdateUi(GameUiUpdateType.GameUIUpdateObjectiveChange);
+                UiService.UpdateUi(GameUiUpdateType.GameUIUpdateSurvivalTimer);
                 if (levelSurvival.SurvivalTimer <= 0)
                 {
                     GameStateLoadingService.SetGameState(em, ecb, GameStateTypes.GameOver);

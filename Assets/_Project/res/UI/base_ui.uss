@@ -500,3 +500,43 @@
 .opt-20 {
     opacity: 0.2;
 }
+
+#unity-dragger {
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/GameUI/Timeline_Icon_Dino.png?fileID=2800000&guid=34aa81a921990a643b1da818ea59e4a2&type=3#Timeline_Icon_Dino');
+    width: 9px;
+    height: 8px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: -4px;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+}
+
+#unity-tracker {
+    background-image: url('project://database/Assets/_Project/res/Textures/UI/GameUI/Timeline_Fill.png?fileID=2800000&guid=59dab21d13d4618428abc244a04069e7&type=3#Timeline_Fill');
+    width: 177px;
+    height: 5px;
+    -unity-slice-left: 2;
+    -unity-slice-right: 2;
+    margin-left: 1.5px;
+    margin-right: 0;
+    margin-top: -2.5px;
+    margin-bottom: 0;
+    -unity-background-scale-mode: stretch-to-fill;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    background-color: rgba(255, 255, 255, 0);
+    transform-origin: left;
+}
+
+#unity-dragger-border {
+}

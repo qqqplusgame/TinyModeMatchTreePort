@@ -26,6 +26,13 @@ namespace ProjectM.UI
         private Label LabelScore;
         private Label LabelRemainingMoves;
 
+        private VisualElement SurvivalModeTimeline;
+        private VisualElement ContainerNearDeathGlow;
+        private Slider Container;
+        private VisualElement Skull;
+        private VisualElement SkullNearDeath;
+        private VisualElement Tracker;
+
         private int LastCollectedEggCount;
         private bool LastIsObjectiveComplete;
 
@@ -51,6 +58,13 @@ namespace ProjectM.UI
             LabelTime = uiRoot.Q<Label>("CustomLabelTime");
             LabelScore = uiRoot.Q<Label>("CustomLabelScoreValue");
             LabelRemainingMoves = uiRoot.Q<Label>("CustomLabelRemainingMoves");
+
+            SurvivalModeTimeline = uiRoot.Q<VisualElement>("SurvivalModeTimeline");
+            ContainerNearDeathGlow = SurvivalModeTimeline.Q<VisualElement>("ContainerNearDeathGlow");
+            Container = SurvivalModeTimeline.Q<Slider>("Container");
+            Skull = SurvivalModeTimeline.Q<VisualElement>("Skull");
+            SkullNearDeath = SurvivalModeTimeline.Q<VisualElement>("SkullNearDeath");
+            Tracker = SurvivalModeTimeline.Q<VisualElement>("unity-tracker");
         }
 
         // Start is called before the first frame update
@@ -132,6 +146,14 @@ namespace ProjectM.UI
 
             UiService.SetVisualElementVisible(ImageMoves, !isSurvivalObjective);
             UiService.SetVisualElementVisible(ImageNoMovesWarning, false);
+
+            UiService.SetVisualElementVisible(SurvivalModeTimeline, isSurvivalObjective);
+            if (isSurvivalObjective)
+            {
+                UiService.SetVisualElementVisible(SkullNearDeath, false);
+                UiService.SetVisualElementVisible(ContainerNearDeathGlow, false);
+                Container.value = 100f;
+            }
 
             LabelTime.text = "";
             LabelScore.text = "0";
@@ -267,12 +289,7 @@ namespace ProjectM.UI
             }
 
             LabelScore.text = GameService.formatNumber(gameState.CurrentScore);
-            if (isSurvivalObjective)
-            {
-                var survivalObjective = em.GetComponentData<LevelSurvival>(levelEntity);
-                LabelTime.text = GameService.formatTime(survivalObjective.SurvivalTimer);
-            }
-            else if (isEggObjective)
+            if (isEggObjective)
             {
                 var eggObjective = em.GetComponentData<LevelEggObjective>(levelEntity);
                 var totalToCollect = eggObjective.EggsInGridAtStart + eggObjective.EggsToSpawnOnEggCollected;
@@ -292,6 +309,33 @@ namespace ProjectM.UI
                     LabelObjective.text = remainingEggCount;
                 }
             }
+        }
+
+        /// <summary>
+        /// only update when the level is survival mode
+        /// </summary>
+        public void UpdateSurvivalTimer()
+        {
+            var em = World.DefaultGameObjectInjectionWorld.EntityManager;
+            var gameState = GameService.getGameState(em);
+            var levelID = gameState.CurrentLevelID;
+            var levelEntity = GameService.getLevelEntity(em, levelID);
+
+
+            LabelTime.text = GameService.formatTime(gameState.Time);
+
+            var levelSurvival = em.GetComponentData<LevelSurvival>(levelEntity);
+            var survivalRatio = -1f;
+
+            survivalRatio = levelSurvival.SurvivalTimer / levelSurvival.MaxSurvivalTime;
+
+            if (survivalRatio < 0f)
+            {
+                return;
+            }
+
+            Container.value = survivalRatio * Container.highValue;
+            Tracker.transform.scale = new Vector3(survivalRatio, 1, 1);
         }
     }
 }

@@ -46,6 +46,9 @@ namespace ProjectM
                 case GameUiUpdateType.GameUIUpdateObjectiveChange:
                     _mainUi.gameUI.UpdateObjectiveChange();
                     break;
+                case GameUiUpdateType.GameUIUpdateSurvivalTimer:
+                    _mainUi.gameUI.UpdateSurvivalTimer();
+                    break;
                 case GameUiUpdateType.WorldMapUI:
                     _mainUi.worldMapUI.UpdateUI();
                     break;

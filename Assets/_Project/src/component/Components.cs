@@ -284,6 +284,7 @@ namespace ProjectM
         GameUI,
         GameUIUpdateRemainingMoves,
         GameUIUpdateObjectiveChange,
+        GameUIUpdateSurvivalTimer,
         WorldMapUI,
     }
 
