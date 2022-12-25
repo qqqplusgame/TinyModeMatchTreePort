@@ -485,7 +485,6 @@
 .ani-rotate {
     transition-property: rotate;
     transition-duration: 2s;
-    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
     transition-timing-function: linear;
 }
 
@@ -539,4 +538,18 @@
 }
 
 #unity-dragger-border {
+}
+
+.rotate-15 {
+    rotate: 15deg;
+}
+
+.rotate--15 {
+    rotate: -15deg;
+}
+
+.ani-rotate-fast {
+    transition-property: rotate;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
 }

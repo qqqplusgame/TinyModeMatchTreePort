@@ -40,11 +40,33 @@ namespace ProjectM.UI
             timeLabel.text = isSurvivalMode ? "Time" : " ";
 
             timeValueLabel.text = isSurvivalMode ? GameService.formatTime(gameState.Time) : "";
+
+            if (isObjectiveComplete)
+            {
+                leftArmSuccess.AddToClassList("rotate--15");
+                rightArmSuccess.AddToClassList("rotate-15");
+                leftArmSuccess.AddToClassList("ani-rotate-fast");
+                rightArmSuccess.AddToClassList("ani-rotate-fast");
+                leftArmSuccess.schedule.Execute(() =>
+                {
+                    //leftArmSuccess.RemoveFromClassList("rotate--15");
+                    leftArmSuccess.ToggleInClassList("rotate--15");
+                    leftArmSuccess.ToggleInClassList("rotate-15");
+                }).StartingIn(10);
+                rightArmSuccess.schedule.Execute(() =>
+                {
+                    //leftArmSuccess.RemoveFromClassList("rotate--15");
+                    rightArmSuccess.ToggleInClassList("rotate-15");
+                    rightArmSuccess.ToggleInClassList("rotate--15");
+                }).StartingIn(10);
+            }
         }
 
         public void Hide()
         {
             mPanel.style.display = DisplayStyle.None;
+            leftArmSuccess.ClearClassList();
+            rightArmSuccess.ClearClassList();
         }
 
         private void Awake()
@@ -72,15 +94,10 @@ namespace ProjectM.UI
             // musicBtn.RegisterCallback<ClickEvent>(MusicBtnClick);
             quitBtn.RegisterCallback<ClickEvent>(QuitBtnClick);
             // resumeBtn.RegisterCallback<ClickEvent>(ResumeBtnClick);
+            leftArmSuccess.RegisterCallback<TransitionEndEvent>(LeftSucArmAnimEvent);
+            rightArmSuccess.RegisterCallback<TransitionEndEvent>(RightSucArmAnimEvent);
         }
 
-        private void QuitBtnClick(ClickEvent evt)
-        {
-            var em = World.DefaultGameObjectInjectionWorld.EntityManager;
-            
-            GameService.changeGameStateTypeWithUpdate(em, GameStateTypes.WorldMap);
-            //GameStateLoadingService.SetGameState(em, GameStateTypes.WorldMap);
-        }
 
         private void OnDisable()
         {
@@ -88,6 +105,50 @@ namespace ProjectM.UI
             // musicBtn.UnregisterCallback<ClickEvent>(MusicBtnClick);
             quitBtn.UnregisterCallback<ClickEvent>(QuitBtnClick);
             // resumeBtn.UnregisterCallback<ClickEvent>(ResumeBtnClick);
+            leftArmSuccess.UnregisterCallback<TransitionEndEvent>(LeftSucArmAnimEvent);
+            rightArmSuccess.UnregisterCallback<TransitionEndEvent>(RightSucArmAnimEvent);
+        }
+
+        private void QuitBtnClick(ClickEvent evt)
+        {
+            var em = World.DefaultGameObjectInjectionWorld.EntityManager;
+
+            GameService.changeGameStateTypeWithUpdate(em, GameStateTypes.WorldMap);
+            //GameStateLoadingService.SetGameState(em, GameStateTypes.WorldMap);
+        }
+
+        private void LeftSucArmAnimEvent(TransitionEndEvent evt)
+        {
+            leftArmSuccess.ToggleInClassList("rotate--15");
+            leftArmSuccess.ToggleInClassList("rotate-15");
+            
+            // if (leftArmSuccess.ClassListContains("rotate-15"))
+            // {
+            //     leftArmSuccess.RemoveFromClassList("rotate-15");
+            //     leftArmSuccess.AddToClassList("rotate--15");
+            // }
+            // else if (leftArmSuccess.ClassListContains("rotate--15"))
+            // {
+            //     leftArmSuccess.RemoveFromClassList("rotate-15");
+            //     leftArmSuccess.AddToClassList("rotate--15");
+            // }
+        }
+
+        private void RightSucArmAnimEvent(TransitionEndEvent evt)
+        {
+            rightArmSuccess.ToggleInClassList("rotate-15");
+            rightArmSuccess.ToggleInClassList("rotate--15");
+            
+            // if (rightArmSuccess.ClassListContains("rotate-15"))
+            // {
+            //     rightArmSuccess.RemoveFromClassList("rotate-15");
+            //     rightArmSuccess.AddToClassList("rotate--15");
+            // }
+            // else if (rightArmSuccess.ClassListContains("rotate--15"))
+            // {
+            //     rightArmSuccess.RemoveFromClassList("rotate-15");
+            //     rightArmSuccess.AddToClassList("rotate--15");
+            // }
         }
     }
 }

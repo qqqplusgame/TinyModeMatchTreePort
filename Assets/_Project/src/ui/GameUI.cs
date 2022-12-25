@@ -88,16 +88,20 @@ namespace ProjectM.UI
             ImageObjectiveCompleteGlow.EnableInClassList("ani-rotate", false);
             ImageObjectiveCompleteGlow.EnableInClassList("rotate-360", false);
 
-
-            StartCoroutine(DoAfterOnObjectCompleteGlowTransitionEnd());
+            ImageObjectiveCompleteGlow.schedule.Execute(() =>
+            {
+                ImageObjectiveCompleteGlow.EnableInClassList("ani-rotate", true);
+                ImageObjectiveCompleteGlow.EnableInClassList("rotate-360", true);
+            }).StartingIn(10);
+            //StartCoroutine(DoAfterOnObjectCompleteGlowTransitionEnd());
         }
 
-        IEnumerator DoAfterOnObjectCompleteGlowTransitionEnd()
-        {
-            yield return new WaitForEndOfFrame();
-            ImageObjectiveCompleteGlow.EnableInClassList("ani-rotate", true);
-            ImageObjectiveCompleteGlow.EnableInClassList("rotate-360", true);
-        }
+        // IEnumerator DoAfterOnObjectCompleteGlowTransitionEnd()
+        // {
+        //     yield return new WaitForEndOfFrame();
+        //     ImageObjectiveCompleteGlow.EnableInClassList("ani-rotate", true);
+        //     ImageObjectiveCompleteGlow.EnableInClassList("rotate-360", true);
+        // }
 
         public void SetVisible(bool visible)
         {
@@ -108,8 +112,8 @@ namespace ProjectM.UI
                 //do some cleanup
                 ImageObjectiveCompleteGlow.EnableInClassList("ani-rotate", false);
                 ImageObjectiveCompleteGlow.EnableInClassList("rotate-360", false);
-                StopAllCoroutines();
 
+                
                 ImageNoMovesWarning.EnableInClassList("ani-blink", false);
                 ImageNoMovesWarning.EnableInClassList("opt-20", false);
             }
