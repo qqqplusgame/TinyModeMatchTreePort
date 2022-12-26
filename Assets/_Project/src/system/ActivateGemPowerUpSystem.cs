@@ -112,7 +112,7 @@ namespace ProjectM
                     // em.setComponentData(bombGem.SameColorPowerUpVisual, bombGemPowerUpSpriteLayerSorting);
                     //
                     // SoundService.play(em, "Slash");
-                    AudioUtils.PlaySound(em,"Slash");
+                    AudioUtils.PlaySound(em, "Slash");
                     var gemBuff = GridService.getGemBuff(em);
                     for (int i = 0; i < gemBuff.Length; i++)
                     {
@@ -214,7 +214,7 @@ namespace ProjectM
                     spawnDestroyLineAnimation(em, ecb, gameManager, startPosition.x, startPosition.y, endPosition.x,
                         endPosition.y);
                     //SoundService.play(EntityManager, "Slash");
-                    AudioUtils.PlaySound(em,"Slash");
+                    AudioUtils.PlaySound(em, "Slash");
                     return true;
                 }
                 case GemPowerUpTypes.Column:
@@ -230,7 +230,7 @@ namespace ProjectM
                     spawnDestroyLineAnimation(em, ecb, gameManager, startPosition.x, startPosition.y, endPosition.x,
                         endPosition.y);
                     //SoundService.play(EntityManager, "Slash");
-                    AudioUtils.PlaySound(em,"Slash");
+                    AudioUtils.PlaySound(em, "Slash");
                     return true;
                 }
                 case GemPowerUpTypes.Square:
@@ -270,7 +270,7 @@ namespace ProjectM
                     spawnDestroyLineAnimation(em, ecb, gameManager, startPositionRight.x, startPositionRight.y + 10,
                         endPositionRight.x - 5, endPositionRight.y - 10);
                     //SoundService.play(EntityManager, "Slash");
-                    AudioUtils.PlaySound(em,"Slash");
+                    AudioUtils.PlaySound(em, "Slash");
                     return true;
                 }
                 case GemPowerUpTypes.DiagonalCross:
@@ -289,20 +289,20 @@ namespace ProjectM
                                 gemPosition.y + i - gemPosition.x), true, entitiesToDestroy);
                     }
 
-                    var startPosition1 = this.findDiagonalEnd(ref grid, new int2(gemPosition.x, gemPosition.y),
+                    var startPosition1 = findDiagonalEnd(ref grid, new int2(gemPosition.x, gemPosition.y),
                         new int2(-1, -1));
-                    var endPosition1 = this.findDiagonalEnd(ref grid, new int2(gemPosition.x, gemPosition.y),
+                    var endPosition1 = findDiagonalEnd(ref grid, new int2(gemPosition.x, gemPosition.y),
                         new int2(1, 1));
-                    var startPosition2 = this.findDiagonalEnd(ref grid, new int2(gemPosition.x, gemPosition.y),
+                    var startPosition2 = findDiagonalEnd(ref grid, new int2(gemPosition.x, gemPosition.y),
                         new int2(-1, 1));
-                    var endPosition2 = this.findDiagonalEnd(ref grid, new int2(gemPosition.x, gemPosition.y),
+                    var endPosition2 = findDiagonalEnd(ref grid, new int2(gemPosition.x, gemPosition.y),
                         new int2(1, -1));
                     spawnDestroyLineAnimation(em, ecb, gameManager, startPosition1.x, startPosition1.y, endPosition1.x,
                         endPosition1.y);
                     spawnDestroyLineAnimation(em, ecb, gameManager, startPosition2.x, startPosition2.y, endPosition2.x,
                         endPosition2.y);
                     //SoundService.play(EntityManager, "Slash");
-                    AudioUtils.PlaySound(em,"Slash");
+                    AudioUtils.PlaySound(em, "Slash");
                     return true;
                 }
             }
@@ -312,7 +312,12 @@ namespace ProjectM
 
         float2 findDiagonalEnd(ref GridConfiguration grid, int2 current, int2 direction)
         {
-            if (current.x == 0 || current.x == grid.Width - 1 || current.y == 0 || current.y == grid.Height - 1)
+            //fix a bug when the gem is on the edge of the grid,animation will not be displayed
+            //,casue the positon is not correct
+            if ((current.x == 0 && direction.x < 0) ||
+                (current.x == grid.Width - 1 && direction.x > 0) ||
+                (current.y == 0 && direction.y < 0) ||
+                (current.y == grid.Height - 1 && direction.y > 0))
             {
                 var worldPositon = GridService.getGridToWorldPosition(grid, current.x, current.y);
                 return new float2(worldPositon.x, worldPositon.y);
