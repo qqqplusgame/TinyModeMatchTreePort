@@ -10,8 +10,8 @@
                 <ui:Label tabindex="-1" text="Music" display-tooltip-when-elided="true" name="CustomLabelMusic" style="-unity-font-definition: url(&apos;project://database/Assets/_Project/res/fonts/Pixellari%20SDF.asset?fileID=11400000&amp;guid=c013de2312baf40429010bc977aa466b&amp;type=2#Pixellari SDF&apos;); font-size: 14px; color: rgb(126, 193, 234); width: 45px; height: 12px; position: absolute; top: 35px; -unity-text-align: middle-left; justify-content: center; align-self: center; left: 16px;" />
                 <ui:Button tabindex="-1" display-tooltip-when-elided="true" enable-rich-text="false" name="ButtonSound" class="sound-on" />
                 <ui:Button tabindex="-1" display-tooltip-when-elided="true" name="ButtonMusic" class="sound-on" style="position: absolute; left: 113px; top: 35px; width: 21px; height: 22px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
-                <ui:Button tabindex="-1" text="QUIT" display-tooltip-when-elided="false" name="ButtonQuit" enable-rich-text="false" class="quit-button" />
-                <ui:Button tabindex="-1" text="RESUME" display-tooltip-when-elided="false" name="ButtonResume" enable-rich-text="false" class="resume-button" />
+                <ui:Button tabindex="-1" text="QUIT" display-tooltip-when-elided="false" name="ButtonQuit" enable-rich-text="false" class="quit-button" style="border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; background-color: rgba(55, 55, 55, 0);" />
+                <ui:Button tabindex="-1" text="RESUME" display-tooltip-when-elided="false" name="ButtonResume" enable-rich-text="false" class="resume-button" style="border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; background-color: rgba(55, 55, 55, 0);" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

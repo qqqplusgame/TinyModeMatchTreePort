@@ -47,7 +47,7 @@ namespace ProjectM
 
         public static GameState getGameState(in EntityManager em)
         {
-            if (!em.Exists(gameStateEntity))
+            if (!em.Exists(gameStateEntity) || !em.HasComponent<GameState>(gameStateEntity))
             {
                 return new GameState()
                 {
@@ -88,9 +88,9 @@ namespace ProjectM
             if (currentLevelID > 0)
             {
                 var levels = em.GetBuffer<LevelBuff>(gameMangerEntity);
-                if (levels.Length > currentLevelID-1)
+                if (levels.Length > currentLevelID - 1)
                 {
-                    return levels[currentLevelID-1].levelEntity;
+                    return levels[currentLevelID - 1].levelEntity;
                 }
             }
 
@@ -125,9 +125,9 @@ namespace ProjectM
             if (levelID > 0)
             {
                 var levels = em.GetBuffer<LevelBuff>(gameMangerEntity);
-                if (levels.Length > levelID-1)
+                if (levels.Length > levelID - 1)
                 {
-                    return levels[levelID-1].levelEntity;
+                    return levels[levelID - 1].levelEntity;
                 }
             }
 

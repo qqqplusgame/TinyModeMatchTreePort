@@ -17,6 +17,9 @@ namespace ProjectM.Authoring
     //     public GemTypes[] MissingGems;
     // }
 
+
+    
+
     // [ConverterVersion("Tiny2D", 1)]
     public class GameManagerComponent : MonoBehaviour
     {
@@ -30,6 +33,7 @@ namespace ProjectM.Authoring
 
         public ParticleSystem.MinMaxCurve Curve;
 
+        public SpriteAtlas[] AtlasRefList;
         public Sprite[] SpriteRefList;
 
 
@@ -57,7 +61,7 @@ namespace ProjectM.Authoring
                 gameManager.DestroyLineAnimationPrefab = GetEntity(authoring.DestroyLineAnimationPrefab);
             if (authoring.DestroyLaserAnimationPrefab != null)
                 gameManager.DestroyLaserAnimationPrefab = GetEntity(authoring.DestroyLaserAnimationPrefab);
-            
+
 
             gameManager.GridWidth = authoring.GridWidth;
             gameManager.GridHeight = authoring.GridHeight;
@@ -69,6 +73,12 @@ namespace ProjectM.Authoring
             var gameAssets = new GameAssets();
 
             gameAssets.spriteDic = new Dictionary<string, Sprite>();
+            gameAssets.spriteAtlasList = new List<SpriteAtlas>();
+
+            foreach (var atlas in authoring.AtlasRefList)
+            {
+                gameAssets.spriteAtlasList.Add(atlas);
+            }
 
             foreach (var sprite in authoring.SpriteRefList)
             {

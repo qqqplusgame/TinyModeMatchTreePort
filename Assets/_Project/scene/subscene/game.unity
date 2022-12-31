@@ -156,18 +156,12 @@ MonoBehaviour:
   - {fileID: 3236381462746975554, guid: 44b1000425cc0234da9cc8cb7ffd6a93, type: 3}
   - {fileID: 3236381462746975554, guid: 8cae901b6e18b694282087d6dbe59dd4, type: 3}
   - {fileID: 3236381462746975554, guid: 4a3669d0f2a90e34193abe7e9028552d, type: 3}
-  CellPrefab: {fileID: 314338863780288394, guid: d469c45cd86f90f4e9b33e28055e9fe7,
-    type: 3}
-  GemPrefab: {fileID: 5360884241659187778, guid: 65c6872734d07664f9edad46585b4d4d,
-    type: 3}
-  ExplodingGem1Prefab: {fileID: 1801526658213136757, guid: f9bfa2da54991524d94605423c94cdcc,
-    type: 3}
-  ExplodingGem2Prefab: {fileID: 1838757971081750991, guid: a8f20890706515644b16cd25b03dfbac,
-    type: 3}
-  DestroyLineAnimationPrefab: {fileID: 7669614733663726332, guid: 882843b6a4fa2994f8c2d291e475c961,
-    type: 3}
-  DestroyLaserAnimationPrefab: {fileID: 4323114730240452712, guid: 5bfed58555cc3064d8c9a36c4c36ee17,
-    type: 3}
+  CellPrefab: {fileID: 314338863780288394, guid: d469c45cd86f90f4e9b33e28055e9fe7, type: 3}
+  GemPrefab: {fileID: 5360884241659187778, guid: 65c6872734d07664f9edad46585b4d4d, type: 3}
+  ExplodingGem1Prefab: {fileID: 1801526658213136757, guid: f9bfa2da54991524d94605423c94cdcc, type: 3}
+  ExplodingGem2Prefab: {fileID: 1838757971081750991, guid: a8f20890706515644b16cd25b03dfbac, type: 3}
+  DestroyLineAnimationPrefab: {fileID: 7669614733663726332, guid: 882843b6a4fa2994f8c2d291e475c961, type: 3}
+  DestroyLaserAnimationPrefab: {fileID: 4323114730240452712, guid: 5bfed58555cc3064d8c9a36c4c36ee17, type: 3}
   Curve:
     m_Mode: 1
     m_CurveMultiplier: 1
@@ -203,6 +197,15 @@ MonoBehaviour:
       m_RotationOrder: 4
     m_ConstantMin: 0
     m_ConstantMax: 0
+  AtlasRefList:
+  - {fileID: 100100200, guid: a1af44374dc8a7e4ebae1926bd04099c, type: 3}
+  - {fileID: 100100200, guid: 497ff14b878deb44ab056ab4333baf1b, type: 3}
+  - {fileID: 100100200, guid: daf9b19414139ab43aa7ee0d93cb88cb, type: 3}
+  - {fileID: 100100200, guid: f41855547e1296049a070b19da91f31e, type: 3}
+  - {fileID: 100100200, guid: 411e3dfa62cd3904fa1f54cb67ccdbb2, type: 3}
+  - {fileID: 100100200, guid: 603552d327b998841b68b0159d57421c, type: 3}
+  - {fileID: 100100200, guid: f6274e802d47dbf4ba708e33d7590e8e, type: 3}
+  - {fileID: 100100200, guid: 6e3097751f259ca48b54610b66b5713e, type: 3}
   SpriteRefList:
   - {fileID: 21300000, guid: 7c1bcac7e802ff54aa73e8d78c16e9d1, type: 3}
   - {fileID: 21300000, guid: b87448dac86554ba8bbc5d028e218169, type: 3}

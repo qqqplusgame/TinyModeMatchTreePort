@@ -61,6 +61,16 @@ namespace ProjectM
             }
         }
 
+        public static void MuteMusic(bool mute)
+        {
+            DeAudioManager.SetVolume(DeAudioGroupId.Music, mute ? 0 : 1);
+        }
+        
+        public static void MuteSFX(bool mute)
+        {
+            DeAudioManager.SetVolume(DeAudioGroupId.FX, mute ? 0 : 1);
+        }
+        
         public static void PlaySound(EntityManager em, string name)
         {
             // var clipEntity = FindAudioClip(entityManager, audioType);

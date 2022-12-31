@@ -82,11 +82,11 @@ namespace ProjectM
             {
                 return;
             }
-            
+
             EntityCommandBuffer
                 endSimECB = new EntityCommandBuffer(Allocator.Temp); //endSimECBSystem.CreateCommandBuffer();
-            
-            
+
+
             if (pointerDown && hoveredGemHashKey != -1)
             {
                 Debug.Log("hoveredGemHashKey" + hoveredGemHashKey);
@@ -121,39 +121,55 @@ namespace ProjectM
             else if (pointerPressed && hoveredGemHashKey != previouslySelectedGemHashKey &&
                      previouslySelectedGemHashKey != -1)
             {
+                Debug.Log($"hoveredGemHashKey = {hoveredGemHashKey}");
                 // Trigger gem swap when the selected gem is dragged over another gem.
                 int2 gemToSwapWithPosition = int2.zero;
                 var gemPosition = GridService.getPositionFromCellHashCode(grid, previouslySelectedGemHashKey);
                 var xDiff = pointerWorldPosition.x - previouslySelectedGemPosition.x;
                 var yDiff = pointerWorldPosition.y - previouslySelectedGemPosition.y;
                 var isHorizontalMatch = math.abs(xDiff) > math.abs(yDiff);
+                var isEdgeLeap = false;
                 if (isHorizontalMatch && xDiff > 0)
                 {
                     gemToSwapWithPosition = new int2(gemPosition.x + 1, gemPosition.y);
+                    if (gemPosition.x == grid.Width - 1)
+                        isEdgeLeap = true;
                 }
                 else if (isHorizontalMatch && xDiff < 0)
                 {
                     gemToSwapWithPosition = new int2(gemPosition.x - 1, gemPosition.y);
+                    if (gemPosition.x == 0)
+                        isEdgeLeap = true;
                 }
                 else if (!isHorizontalMatch && yDiff > 0)
                 {
                     gemToSwapWithPosition = new int2(gemPosition.x, gemPosition.y + 1);
+                    if (gemPosition.y == grid.Height - 1)
+                        isEdgeLeap = true;
                 }
                 else if (!isHorizontalMatch && yDiff < 0)
                 {
                     gemToSwapWithPosition = new int2(gemPosition.x, gemPosition.y - 1);
+                    if (gemPosition.y == 0)
+                        isEdgeLeap = true;
                 }
+
 
                 var previouslySelectedGemEntity = GemService.getGemEntity(EntityManager, previouslySelectedGemHashKey);
                 var previouslySelectedGem = GemService.getGemFromEntity(EntityManager, previouslySelectedGemEntity);
-                var gemToSwapWithEntity = GemService.getGemEntityAtPosition(EntityManager, grid,
-                    gemToSwapWithPosition.x, gemToSwapWithPosition.y);
-                var gemToSwapWith = GemService.getGemFromEntity(EntityManager, gemToSwapWithEntity);
-                if (gemToSwapWith.CellHashKey >= 0)
+
+                if (!isEdgeLeap)
                 {
-                    swapGems(ref grid, previouslySelectedGemEntity, ref previouslySelectedGem, gemToSwapWithEntity,
-                        ref gemToSwapWith, endSimECB);
+                    var gemToSwapWithEntity = GemService.getGemEntityAtPosition(EntityManager, grid,
+                        gemToSwapWithPosition.x, gemToSwapWithPosition.y);
+                    var gemToSwapWith = GemService.getGemFromEntity(EntityManager, gemToSwapWithEntity);
+                    if (gemToSwapWith.CellHashKey >= 0)
+                    {
+                        swapGems(ref grid, previouslySelectedGemEntity, ref previouslySelectedGem, gemToSwapWithEntity,
+                            ref gemToSwapWith, endSimECB);
+                    }
                 }
+
 
                 previouslySelectedGem.IsSelected = false;
                 endSimECB.SetComponent(previouslySelectedGemEntity, previouslySelectedGem);
@@ -182,7 +198,7 @@ namespace ProjectM
             GemService.animateGemsSwap(EntityManager, ecb, ref grid, gemEntity1, ref gem1, gemEntity2, ref gem2);
 
             //todo SoundService.play(this.world, "GemSwapSound");
-            AudioUtils.PlaySound(EntityManager,"CellSwap");
+            AudioUtils.PlaySound(EntityManager, "CellSwap");
         }
     }
 }

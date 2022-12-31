@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentFrame: 0
   TotalFrames: 3
-  FrameRate: 15
+  FrameRate: 0.2
   Time: 0
   IsLooping: 1
   Sprites:

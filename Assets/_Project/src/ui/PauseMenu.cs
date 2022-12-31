@@ -52,15 +52,33 @@ namespace ProjectM.UI
 
         void SoundBtnClick(ClickEvent evt)
         {
-            Debug.Log("SoundBtnClick");
-
             soundBtn.ToggleInClassList("sound-off");
+            if (soundBtn.ClassListContains("sound-off"))
+            {
+                Debug.Log("Sound off");
+                AudioUtils.MuteSFX(true);
+            }
+            else
+            {
+                Debug.Log("Sound on");
+                AudioUtils.MuteSFX(false);
+            }
         }
 
         void MusicBtnClick(ClickEvent evt)
         {
-            Debug.Log("MusicBtnClick");
+            
             musicBtn.ToggleInClassList("sound-off");
+            if (musicBtn.ClassListContains("sound-off"))
+            {
+                Debug.Log("Music off");
+                AudioUtils.MuteMusic(true);
+            }
+            else
+            {
+                Debug.Log("Music on");
+                AudioUtils.MuteMusic(false);
+            }
         }
 
         void QuitBtnClick(ClickEvent evt)

@@ -18,7 +18,7 @@ namespace ProjectM
 
         public void OnUpdate(ref SystemState state)
         {
-            Debug.Log("SetupGameSystem");
+            //Debug.Log("SetupGameSystem");
 
             var em = state.EntityManager;
             if (SystemAPI.TryGetSingletonEntity<GameManager>(out var e))

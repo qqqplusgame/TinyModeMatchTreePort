@@ -12,7 +12,7 @@ namespace ProjectM
     // public struct TweenTag : IComponentData
     // {
     // }
-    
+
     public enum AudioTypes
     {
         None,
@@ -39,12 +39,14 @@ namespace ProjectM
     public enum GameStateTypes
     {
         None = -1,
+
         //Boot = 0,
         //Loading = 1,
         //MainMenu = 2,
         Game = 3,
         GameOver = 4,
         Settings = 5,
+
         //Credits = 6,
         Paused = 7,
         WorldMap = 8,
@@ -89,7 +91,7 @@ namespace ProjectM
     {
         public float Delay;
     }
-    
+
     public struct GameManager : IComponentData
     {
         public Entity CellPrefab;
@@ -98,7 +100,7 @@ namespace ProjectM
         public Entity ExplodingGem2Prefab;
         public Entity DestroyLineAnimationPrefab;
         public Entity DestroyLaserAnimationPrefab;
-        
+
         public int GridWidth;
         public int GridHeight;
         public int GridCellDimension;
@@ -108,9 +110,23 @@ namespace ProjectM
     public class GameAssets : IComponentData
     {
         public Dictionary<string, Sprite> spriteDic;
+
+        public List<SpriteAtlas> spriteAtlasList;
+
         // public SpriteAtlas GemAtlas;
         // public SpriteAtlas CellAtlas;
-
+        public Sprite GetSprite(string name)
+        {
+            if (spriteDic.ContainsKey(name))
+            {
+                return spriteDic[name];
+            }
+            else
+            {
+                Debug.LogError("Sprite not found: " + name);
+                return null;
+            }
+        }
     }
 
     public struct LevelBuff : IBufferElementData
@@ -159,21 +175,24 @@ namespace ProjectM
         public float EndPositionX;
         public float EndPositionY;
     }
+
     public class ColorGradient : IComponentData
     {
         public Gradient gradient;
     }
 
-    public struct Selected: IComponentData
+    public struct Selected : IComponentData
     {
     }
-    public struct Falling: IComponentData
+
+    public struct Falling : IComponentData
     {
     }
-    public struct Swapping: IComponentData
+
+    public struct Swapping : IComponentData
     {
     }
-    
+
     public struct Gem : IComponentData
     {
         public int CellHashKey;
@@ -273,6 +292,7 @@ namespace ProjectM
     public struct GameStateChange : IComponentData
     {
     }
+
     public struct GameUiUpdate : IComponentData
     {
         public NativeArray<GameUiUpdateType> GameUiUpdateTypes;
