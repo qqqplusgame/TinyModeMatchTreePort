@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ProjectM
 {
-    [UpdateInGroup(typeof(GameSystemGroup), OrderFirst = true)]
+    [UpdateInGroup(typeof(PreGameECBSystemGroup))]
     public partial class UpdateGameStateSystem : SystemBase
     {
         protected override void OnUpdate()

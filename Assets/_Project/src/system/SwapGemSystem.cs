@@ -46,7 +46,7 @@ namespace ProjectM
 
             // Find the gem currently under the input pointer.
             // todo: this is a bit of a hack, we should be able to use the mouse position directly
-            Entities.ForEach((ref Gem gem, in WorldTransform gemTransform) =>
+            Entities.ForEach((ref Gem gem, in LocalTransform gemTransform) =>
             {
                 if (gem.IsFalling || gem.IsSwapping)
                 {
