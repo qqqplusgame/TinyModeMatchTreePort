@@ -1,3 +1,7 @@
+## Update
+2023-03-30
+- update unity version to 2023.1.0b9 and entities to 1.0.0-pre.65
+- IL2CPP build works fine now
 
 
 ## Overview
